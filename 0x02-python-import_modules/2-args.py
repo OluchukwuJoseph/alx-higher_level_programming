@@ -10,7 +10,7 @@ else:
 
 i = 1
 while argc > 1:
-    print(sys.argv[i])
+    print("{}: {}".format(i, sys.argv[i]))
     i += 1
     argc -= 1
 
