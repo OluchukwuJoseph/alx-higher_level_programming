@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
         i = 1
         while argc > 1:
-            print("{}: {}".format(i, sys.argv[i])
+            print("{}: {}".format(i, sys.argv[i]), end="\n")
                     i += 1
                     argc -= 1
 
