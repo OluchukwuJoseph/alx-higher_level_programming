@@ -9,9 +9,9 @@ if __name__ == "__main__":
     else:
         print("{} arguments:".format(argc - 1), end="\n")
 
-        i = 1
-        while argc > 1:
-            print("{}: {}".format(i, sys.argv[i]), end="\n")
-                    i += 1
-                    argc -= 1
+    i = 1
+    while argc > 1:
+        print("{}: {}".format(i, sys.argv[i]), end="\n")
+        i += 1
+        argc -= 1
 
