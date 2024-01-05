@@ -21,5 +21,5 @@ if __name__ == "__main__":
         result = div(int(sys.argv[1]), int(sys.argv[3]))
         print("{} / {} = {}".format(sys.argv[1], sys.argv[3], result), end="\n")
     else:
-        print("unknown operator. Available operators: +, -, * and /", end="\n")
+        print("Unknown operator. Available operators: +, -, * and /", end="\n")
         sys.exit(1)
