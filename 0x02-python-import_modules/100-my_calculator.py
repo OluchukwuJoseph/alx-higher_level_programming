@@ -4,7 +4,7 @@ from calculator_1 import add, sub, div, mul
 if __name__ == "__main__":
     argc = len(sys.argv)
     if argc != 4:
-        print("usage: {} <a> <operator> <b>".format(sys.argv[0]), end="\n")
+        print("Usage: {} <a> <operator> <b>".format(sys.argv[0]), end="\n")
         sys.exit(1)
 
     operator = sys.argv[2]
@@ -21,5 +21,5 @@ if __name__ == "__main__":
         result = div(int(sys.argv[1]), int(sys.argv[3]))
         print("{} / {} = {}".format(sys.argv[1], sys.argv[3], result), end="\n")
     else:
-        print("unknown operator. Available operators: +, -, * and /")
+        print("unknown operator. Available operators: +, -, * and /", end="\n")
         sys.exit(1)
