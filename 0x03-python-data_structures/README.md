@@ -5,3 +5,6 @@ Welcome to the "0x03-python-data_structures" directory! This directory encapsula
 ## Contents
 
 0-print_list_integer.py: A script that prints all integers of a list.\n
+1-element_at.py: A function that retrieves an element from a list like in C.\n
+2-replace_in_list.py: A function that replaces an element of a list at a specific position.\n
+3-print_reversed_list_integer.py: A script that prints all integers of a list in reverse order.\n
