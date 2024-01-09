@@ -1,41 +1,25 @@
 #include "lists.h"
 
 /**
- * check_node_length - Function to calculate the length of the linked list.
- * @head: A pointer to the head of the linked list.
- * Return: Returns the length of the linked list.
+ * reverse_list - Helper function to reverse a linked list
+ * @head: Pointer to the head of the linked list
+ * Return: Pointer to the head of the reversed list
  */
-int check_node_length(listint_t **head)
+listint_t *reverse_list(listint_t *head)
 {
-	listint_t *temp = *head;
-	int length = 0;
+	listint_t *prev = NULL;
+	listint_t *current = head;
+	listint_t *next = NULL;
 
-	while (temp != NULL)
+	while (current != NULL)
 	{
-		length++;
-		temp = temp->next;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	return (length);
-}
 
-/**
- * move_to - Function to move to a specific node in the linked list.
- * @node: The index of the node to move to.
- * @head: A pointer to the head of the linked list.
- * Return: a pointer to the node at the specified index.
- */
-listint_t *move_to(int node, listint_t **head)
-{
-	listint_t *temp = *head;
-
-	if (*head == NULL)
-		return (NULL);
-	while (node > 1)
-	{
-		temp = temp->next;
-		node--;
-	}
-	return (temp);
+	return (prev);
 }
 
 /**
@@ -45,24 +29,27 @@ listint_t *move_to(int node, listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	int middle_node = check_node_length(head) / 2 + check_node_length(head) % 2;
-	int move = check_node_length(head) - middle_node;
-	listint_t *alt_temp = NULL, *temp = NULL;
+	listint_t *slow = *head;
+	listint_t *fast = *head;
+	listint_t *second_half;
 
-	if (*head == NULL)
-		return (0);
-	if (check_node_length(head) == 1)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (move > 0)
+	while (fast != NULL && fast->next != NULL)
 	{
-		temp = move_to(middle_node + move, head);
-		if (check_node_length(head) % 2 == 0)
-			alt_temp = move_to(middle_node - move + 1, head);
-		else
-			alt_temp = move_to(middle_node - move, head);
-		if (temp->n != alt_temp->n)
-			return (0);
-		move--;
+		slow = slow->next;
+		fast = fast->next->next;
 	}
+
+	second_half = reverse_list(slow);
+	while (second_half != NULL)
+	{
+		if ((*head)->n != second_half->n)
+			return (0);
+
+		*head = (*head)->next;
+		second_half = second_half->next;
+	}
+
 	return (1);
 }
