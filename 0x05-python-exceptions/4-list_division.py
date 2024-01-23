@@ -15,7 +15,6 @@ def list_division(my_list_1, my_list_2, list_length):
             elif isinstance(error, IndexError):
                 print("out of range")
                 div = 0
-                break
         finally:
             new_list += [div, ]
     return new_list
