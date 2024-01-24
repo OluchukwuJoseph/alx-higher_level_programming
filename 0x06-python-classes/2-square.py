@@ -1,28 +1,19 @@
 #!/usr/bin/python3
 class Square:
-    """defines square based on size
-
-    Attributes:
-        None
-    """
+    """defines square based on size"""
 
     def __init__(self, size=0):
         """initializes square instance
         Args:
-            self: the instance being created
-            size: size of square
-        Return:
-            Nothing
+            size (int): size of square
         """
         self.check(size)
 
     def check(self, size):
         """Checks if the size passes certain conditions
+
         Args:
-            self: the instance being created
-            size: size of square
-        Return:
-             Nothing
+            size (int): size of square
         """
         try:
             if size < 0:
@@ -30,5 +21,3 @@ class Square:
         except TypeError:
             raise TypeError("size must be an integer")
         self.__size = size
-
-

@@ -1,16 +1,9 @@
 class Square:
-    """defines square based on size
-
-    Attributes:
-        None
-    """
+    """defines square based on size"""
     def __init__(self, size):
         """initializes square instance
-            
+
         Args:
-            self: the instance being created
-            size: size of square
-        Return:
-            Nothing
+            size (int): size of square
         """
         self.__size = size
