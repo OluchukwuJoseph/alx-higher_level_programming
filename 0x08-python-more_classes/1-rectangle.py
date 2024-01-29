@@ -20,44 +20,20 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """sets the private instance attribute width
-
-            Parameters:
-                self - The instance that called the method
-                width(int) - new height value
-
-            Return:
-                Nothing
-        """
-        try:
-            if value < 0:
-                raise ValueError("width must be >= 0")
-            else:
-                self.__width = value
-        except Exception as error:
-            if isinstance(error, TypeError):
-                raise TypeError("width must be an integer")
-            else:
-                print(f"An unknown error {error} occured")
+        """sets width"""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        elif value < 0:
+            raise ValueError("height must be >= 0")
+        else:
+            self.__width = value
 
     @height.setter
     def height(self, value):
-        """sets the private instance attribute height
-
-            Parameters:
-                self - The instance that called the method
-                height(int) - new height value
-
-            Return:
-                Nothing
-        """
-        try:
-            if value < 0:
+        """sets height"""
+        if not isinstance(value, int):
+             raise TypeError("height must be an integer")
+        elif value < 0:
                 raise ValueError("height must be >= 0")
-            else:
-                self.__height = value
-        except Exception as error:
-            if isinstance(error, TypeError):
-                raise TypeError("height must be an integer")
-            else:
-                print(f"An unknown error {error} occured")
+        else:
+            self.__height = value
