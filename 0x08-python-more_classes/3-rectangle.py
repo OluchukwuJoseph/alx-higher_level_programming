@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""1-rectangle.py"""
+"""3-rectangle.py"""
 
 
 class Rectangle:
@@ -10,12 +10,12 @@ class Rectangle:
 
     @property
     def width(self):
-        """Retrieves the private instance attribute width"""
+        """Retrieves width"""
         return self.__width
 
     @property
     def height(self):
-        """Retrieves the private instance attribute height"""
+        """Retrieves height"""
         return self.__height
 
     @width.setter
@@ -37,3 +37,26 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
+
+    def area(self):
+        """Returns area of the rectangle"""
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """Return perimeter of the rectangle"""
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        else:
+            return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """This method print the rectangle with the character #"""
+        if self.__width == 0 or self.__height == 0:
+            return f''
+        else:
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    print('#', end="")
+                if i is not self.__height - 1:
+                    print()
+            return f''
