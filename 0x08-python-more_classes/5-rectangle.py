@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""4-rectangle.py"""
+"""5-rectangle.py"""
 
 
 class Rectangle:
@@ -62,4 +62,11 @@ class Rectangle:
             return f''
 
     def __repr__(self):
+        """This method when paired with eval() can create a new instance
+        with the same value as the current instance"""
         return f"{self.__class__.__name__}({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """This method will be executed when an instance is deleted"""
+        print("Bye rectangle...")
+        return None

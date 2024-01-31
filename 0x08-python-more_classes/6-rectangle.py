@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-"""4-rectangle.py"""
+"""5-rectangle.py"""
 
 
 class Rectangle:
     """A class that has instance attributes and methods"""
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+        number_of_instances += 1
 
     @property
     def width(self):
@@ -62,4 +66,12 @@ class Rectangle:
             return f''
 
     def __repr__(self):
+        """This method when paired with eval() can create a new instance
+        with the same value as the current instance"""
         return f"{self.__class__.__name__}({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """This method will be executed when an instance is deleted"""
+        print("Bye rectangle...")
+        number_of_instances -= 1
+        return None
