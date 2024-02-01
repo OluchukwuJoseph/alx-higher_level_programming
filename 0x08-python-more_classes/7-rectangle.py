@@ -6,6 +6,7 @@ class Rectangle:
     """A class that has instance attributes and methods"""
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         self.width = width
@@ -60,7 +61,7 @@ class Rectangle:
         else:
             for i in range(self.__height):
                 for j in range(self.__width):
-                    print('#', end="")
+                    print(self.print_symbol, end="")
                 if i is not self.__height - 1:
                     print()
             return f''

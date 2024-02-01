@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""5-rectangle.py"""
+"""8-rectangle.py"""
 
 
 class Rectangle:
     """A class that has instance attributes and methods"""
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         self.width = width
@@ -60,7 +61,7 @@ class Rectangle:
         else:
             for i in range(self.__height):
                 for j in range(self.__width):
-                    print('#', end="")
+                    print(self.print_symbol, end="")
                 if i is not self.__height - 1:
                     print()
             return f''
@@ -75,3 +76,17 @@ class Rectangle:
         print("Bye rectangle...")
         type(self).number_of_instances -= 1
         return None
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if type(rect_1) is not Rectangle:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+
+        if type(rect_2) is not Rectangle:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
