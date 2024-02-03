@@ -1,0 +1,60 @@
+The ``0-add_integer`` module
+=============================
+
+Using ``add_integer``
+---------------------
+
+First import:
+>>> add_integer = __import__("0-add_integer").add_integer
+
+Now use it:
+
+Addition of positive and negative whole numbers:
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(-2, 3)
+1
+
+>>> add_integer(-2, -3)
+-5
+
+>>> add_integer(9223372036854775807, 9234567890)
+9223372046089343697
+
+Addition of positive and negative whole numbers and floats:
+
+>>> add_integer(2.50, 3)
+5
+
+>>> add_integer(2.50, 3.50)
+5
+
+>>> add_integer(-2.50, 3)
+1
+
+>>> add_integer(-2, 3.50)
+1
+
+Addition of numbers and invalid types:
+
+>>> add_integer(2, "word")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer([1, 2, 4], 3)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer({1: 10, 2: 20}, 56)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
