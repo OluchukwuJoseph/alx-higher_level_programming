@@ -9,7 +9,7 @@ class MyList(list):
     """
     def print_sorted(self):
         """This method prints the element of an instance in ascending order
-            
+
             Parameters:
                 self: The instance
             Return:

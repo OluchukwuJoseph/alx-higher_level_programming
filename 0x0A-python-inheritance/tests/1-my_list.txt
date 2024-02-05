@@ -19,3 +19,12 @@ Now Use:
 [1, 2, 3, 4, 5]
 >>> print(custom_list)
 [5, 4, 3, 2, 1]
+>>> custom_list2 = MyList()
+>>> custom_list2.append("Oluchukwu")
+>>> custom_list2.append("Joseph")
+>>> custom_list2.append("Other name")
+>>> custom_list2.print_sorted()
+['Joseph', 'Oluchukwu', 'Other name']
+>>> custom_list3 = MyList()
+>>> custom_list3.print_sorted()
+[]
