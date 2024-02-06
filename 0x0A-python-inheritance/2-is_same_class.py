@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """This module contains is_same_class() function
    2-is_same_class.py
 """
