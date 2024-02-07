@@ -15,5 +15,5 @@ def class_to_json(obj):
         Return:
             Json string representation of class
     """
-    json_str = json.dumps(obj.__dict__)
-    return json_str
+    if hasattr(obj, '__dict__'):
+        return obj.__dict__
