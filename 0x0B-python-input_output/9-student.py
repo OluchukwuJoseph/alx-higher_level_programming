@@ -2,7 +2,6 @@
 """This module contains the class Student
    9-student.py
 """
-import json
 
 
 class Student:
@@ -24,6 +23,4 @@ class Student:
     def to_json(self):
         """Converts the instance to Json string format
         """
-        json_string = json.dumps(self.__dict__)
-        obj = json.loads(json_string)
-        return obj
+        return self.__dict__
