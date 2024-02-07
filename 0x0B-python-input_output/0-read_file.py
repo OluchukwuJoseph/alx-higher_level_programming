@@ -15,4 +15,4 @@ def read_file(filename=""):
             None
     """
     with open(filename) as file:
-        print(file.read())
+        print(file.read(), end="")
