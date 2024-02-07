@@ -25,5 +25,5 @@ except (FileNotFoundError, FileExistsError):
     my_list = []
 
 finally:
-    arguments = command_line_arguments + my_list
+    arguments = my_list + command_line_arguments
     save_to_json_file(arguments, filename)
