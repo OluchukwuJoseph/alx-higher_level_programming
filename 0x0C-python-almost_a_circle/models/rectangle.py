@@ -119,7 +119,27 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """
+            prints the instance of Rectangle in our custom way
+        """
         return (
             f"[{self.__class__.__name__}] ({self.id}) "
             f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
         )
+
+    def update(self, *args):
+        """
+            updates the value of each attribue
+
+            1st argument is the id attribute
+            2nd argument is the width attribute
+            3rd argument is the height attribute
+            4th argument is the x attribute
+            5th argument is the y attribute
+        """
+        i = 0
+        for key in self.__dict__:
+            self.__dict__[key] = args[i]
+            i += 1
+            if i == len(args):
+                break
