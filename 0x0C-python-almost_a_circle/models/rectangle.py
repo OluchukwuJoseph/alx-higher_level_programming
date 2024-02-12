@@ -122,12 +122,18 @@ class Rectangle(Base):
         """
             prints the instance of Rectangle in our custom way
         """
-        return (
-            f"[{self.__class__.__name__}] ({self.id}) "
-            f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
-        )
+        if self.__class__.__name__ == 'Rectangle':
+            return (
+                f"[{self.__class__.__name__}] ({self.id}) "
+                f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
+            )
+        elif self.__class__.__name__ == 'Square':
+            return (
+                f"[{self.__class__.__name__}] ({self.id}) "
+                f"{self.__x}/{self.__y} - {self.__width}"
+            )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
             updates the value of each attribue
 
@@ -137,9 +143,18 @@ class Rectangle(Base):
             4th argument is the x attribute
             5th argument is the y attribute
         """
-        i = 0
-        for key in self.__dict__:
-            self.__dict__[key] = args[i]
-            i += 1
-            if i == len(args):
-                break
+        if len(args) != 0:
+            i = 0
+            for key in self.__dict__:
+                self.__dict__[key] = args[i]
+                i += 1
+                if i == len(args):
+                    break
+        else:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    custom_key = key
+                else:
+                    custom_key = '_Rectangle__' + key
+                if custom_key in self.__dict__:
+                    self.__dict__[custom_key] = value
