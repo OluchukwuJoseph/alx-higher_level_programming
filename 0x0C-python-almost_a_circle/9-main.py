@@ -14,12 +14,19 @@ if __name__ == "__main__":
 
     s2 = Square(2, 2)
     print(s2)
+    s2.display()
     print(s2.area())
+    s2.update(1, 4, 9, 8)
+    print(s2)
     s2.display()
 
     print("---")
 
     s3 = Square(3, 1, 3)
+    print(s3)
+    print(s3.area())
+    s3.display()
+    s3.update(size=9)
     print(s3)
     print(s3.area())
     s3.display()

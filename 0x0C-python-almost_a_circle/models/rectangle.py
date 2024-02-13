@@ -122,16 +122,10 @@ class Rectangle(Base):
         """
             prints the instance of Rectangle in our custom way
         """
-        if self.__class__.__name__ == 'Rectangle':
-            return (
-                f"[{self.__class__.__name__}] ({self.id}) "
-                f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
-            )
-        elif self.__class__.__name__ == 'Square':
-            return (
-                f"[{self.__class__.__name__}] ({self.id}) "
-                f"{self.__x}/{self.__y} - {self.__width}"
-            )
+        return (
+            f"[{self.__class__.__name__}] ({self.id}) "
+            f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        )
 
     def update(self, *args, **kwargs):
         """
@@ -143,15 +137,26 @@ class Rectangle(Base):
             4th argument is the x attribute
             5th argument is the y attribute
         """
+        attributes = ['id', 'width', 'height', 'x', 'y']
         if len(args) != 0:
             i = 0
             for key in self.__dict__:
+                if type(args[i]) is not int:
+                    raise TypeError(f"{attributes[i]} must be an integer")
+                if ((attributes[i] == 'width' and args[i] <= 0) or
+                        (attributes[i] == 'height' and args[i] <= 0)):
+                    raise ValueError(f"{attributes[i]} must be > 0")
+                if ((attributes[i] == 'x' and args[i] < 0) or
+                        (attributes[i] == 'y' and args[i] < 0)):
+                    raise ValueError(f"{attributes[i]} must be >= 0")
                 self.__dict__[key] = args[i]
                 i += 1
-                if i == len(args):
-                    break
+                if i >= len(attributes):
+                    raise ValueError('Arguments overload, Expected atmost 5 arguments')
         else:
             for key, value in kwargs.items():
+                if key not in attributes:
+                    raise ValueError(f"Unexpected key -> {key}")
                 if key == 'id':
                     custom_key = key
                 else:
