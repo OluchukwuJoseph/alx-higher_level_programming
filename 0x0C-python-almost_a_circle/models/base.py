@@ -2,6 +2,7 @@
 """This module contains the Base class
    models/base.py
 """
+import os
 
 
 class Base:

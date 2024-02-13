@@ -152,7 +152,10 @@ class Rectangle(Base):
                 self.__dict__[key] = args[i]
                 i += 1
                 if i >= len(attributes):
-                    raise ValueError('Arguments overload, Expected atmost 5 arguments')
+                    raise ValueError(
+                        'Arguments overload, '
+                        'Expected atmost 5 arguments'
+                    )
         else:
             for key, value in kwargs.items():
                 if key not in attributes:

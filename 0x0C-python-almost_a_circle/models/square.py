@@ -44,7 +44,10 @@ class Square(Rectangle):
         attributes = ['id', 'size', 'x', 'y']
         if len(args) != 0:
             if len(args) > len(attributes):
-                raise ValueError(f"Argument overload, Expected atmost 4 arguments")
+                raise ValueError(
+                    'Argument overload, '
+                    'Expected atmost 4 arguments'
+                )
             i = 0
             for i in range(len(args)):
                 if type(args[i]) is not int:
