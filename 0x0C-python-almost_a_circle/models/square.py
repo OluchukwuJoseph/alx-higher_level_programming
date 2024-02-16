@@ -20,7 +20,26 @@ class Square(Rectangle):
         """
             Initialization method
         """
-        super().__init__(size, size, x, y, id)
+        self.size = size
+        super().__init__(self.__size, self.__size, x, y, id)
+
+    @property
+    def size(self):
+        """
+            Size getter method
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """
+            Size setter method
+        """
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        if value <= 0:
+            raise ValueError('width must be > 0')
+        self.__size = value
 
     def __str__(self):
         """
@@ -36,10 +55,9 @@ class Square(Rectangle):
             updates the value of each attribue
 
             1st argument is the id attribute
-            2nd argument is the width attribute
-            3rd argument is the height attribute
-            4th argument is the x attribute
-            5th argument is the y attribute
+            2nd argument is the size attribute
+            3th argument is the x attribute
+            4th argument is the y attribute
         """
         attributes = ['id', 'size', 'x', 'y']
         if len(args) != 0:
@@ -50,6 +68,7 @@ class Square(Rectangle):
                 )
             i = 0
             for i in range(len(args)):
+                # validate argument value
                 if type(args[i]) is not int:
                     raise TypeError(f"{attributes[i]} must be an integer")
                 if attributes[i] == 'size' and args[i] <= 0:
@@ -57,10 +76,15 @@ class Square(Rectangle):
                 if ((attributes[i] == 'x' and args[i] < 0) or
                         (attributes[i] == 'y' and args[i] < 0)):
                     raise ValueError(f"{attributes[i]} must be >= 0")
-                custom_key = '_Rectangle__' + attributes[i]
-                self.__dict__[custom_key] = args[i]
-                if attributes[i] == 'size':
+                # update value
+                if attributes[i] == 'id':
+                    self.__dict__['id'] = args[i]
+                elif attributes[i] == 'size':
+                    self.__dict__['_Rectangle__width'] = args[i]
                     self.__dict__['_Rectangle__height'] = args[i]
+                else:
+                    custom_key = '_Rectangle__' + attributes[i]
+                    self.__dict__[custom_key] = args[i]
         else:
             for key, value in kwargs.items():
                 if key not in attributes:

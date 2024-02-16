@@ -21,11 +21,11 @@ class Rectangle(Base):
         """
             Intialization method
         """
-        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
@@ -166,3 +166,9 @@ class Rectangle(Base):
                     custom_key = '_Rectangle__' + key
                 if custom_key in self.__dict__:
                     self.__dict__[custom_key] = value
+
+    def to_dictionary(self):
+        """
+            returns the dictionary representation of a Rectangle
+        """
+        return self.__dict__
