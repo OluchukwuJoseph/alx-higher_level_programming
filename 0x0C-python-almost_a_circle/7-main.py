@@ -9,9 +9,11 @@ if __name__ == "__main__":
 
     r1.update(89)
     print(r1)
+    print(r1.id)
 
     r1.update(89, 2)
     print(r1)
+    print(r1.width)
 
     r1.update(89, 2, 3)
     print(r1)

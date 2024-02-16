@@ -145,7 +145,7 @@ class Rectangle(Base):
                         'Expected atmost 5 arguments'
                         )
             i = 0
-            for key in self.__dict__:
+            for key in attributes:
                 if type(args[i]) is not int:
                     raise TypeError(f"{attributes[i]} must be an integer")
                 if ((attributes[i] == 'width' and args[i] <= 0) or
@@ -154,7 +154,11 @@ class Rectangle(Base):
                 if ((attributes[i] == 'x' and args[i] < 0) or
                         (attributes[i] == 'y' and args[i] < 0)):
                     raise ValueError(f"{attributes[i]} must be >= 0")
-                self.__dict__[key] = args[i]
+                if key == 'id':
+                    self.__dict__[key] = args[i]
+                else:
+                    custom_key = '_Rectangle__' + key
+                    self.__dict__[custom_key] = args[i]
                 i += 1
                 if i == len(args):
                     break
