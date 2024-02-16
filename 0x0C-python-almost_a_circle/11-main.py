@@ -21,9 +21,13 @@ if __name__ == "__main__":
 
     s1.update(x=12)
     print(s1)
+    print(s1.x)
 
     s1.update(size=7, y=1)
     print(s1)
+    print(s1.size)
+    print(s1.y)
     
     s1.update(size=7, id=89, y=1)
     print(s1)
+    print(s1.id)

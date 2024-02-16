@@ -60,7 +60,7 @@ class Square(Rectangle):
             4th argument is the y attribute
         """
         attributes = ['id', 'size', 'x', 'y']
-        if len(args) != 0:
+        if len(args) > 0:
             if len(args) > len(attributes):
                 raise ValueError(
                     'Argument overload, '
@@ -90,7 +90,7 @@ class Square(Rectangle):
                 if key not in attributes:
                     raise ValueError(f"Unexpected key -> {key}")
                 if key == 'id':
-                    custom_key = key
+                    self.__dict__[key] = value
                 else:
                     custom_key = '_Rectangle__' + key
                     if custom_key == '_Rectangle__size':
