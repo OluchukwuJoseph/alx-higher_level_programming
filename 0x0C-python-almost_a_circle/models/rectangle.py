@@ -138,7 +138,12 @@ class Rectangle(Base):
             5th argument is the y attribute
         """
         attributes = ['id', 'width', 'height', 'x', 'y']
-        if len(args) != 0:
+        if len(args) > 0:
+            if len(args) > len(self.__dict__):
+                raise ValueError(
+                        'Arguments overload, '
+                        'Expected atmost 5 arguments'
+                        )
             i = 0
             for key in self.__dict__:
                 if type(args[i]) is not int:
@@ -151,11 +156,8 @@ class Rectangle(Base):
                     raise ValueError(f"{attributes[i]} must be >= 0")
                 self.__dict__[key] = args[i]
                 i += 1
-                if i >= len(attributes):
-                    raise ValueError(
-                        'Arguments overload, '
-                        'Expected atmost 5 arguments'
-                    )
+                if i == len(args):
+                    break
         else:
             for key, value in kwargs.items():
                 if key not in attributes:

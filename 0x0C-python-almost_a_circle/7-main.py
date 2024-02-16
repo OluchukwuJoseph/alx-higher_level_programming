@@ -8,10 +8,7 @@ if __name__ == "__main__":
     print(r1)
 
     r1.update(89)
-    print(type(r1.id))
     print(r1)
-
-    print(r1.id)
 
     r1.update(89, 2)
     print(r1)
@@ -23,4 +20,7 @@ if __name__ == "__main__":
     print(r1)
 
     r1.update(89, 2, 3, 4, 5)
+    print(r1)
+
+    r1.update(89, 1, 2, 3, 4, 5)
     print(r1)
