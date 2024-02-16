@@ -98,3 +98,19 @@ class Square(Rectangle):
                         self.__dict__['_Rectangle__height'] = value
                     else:
                         self.__dict__[custom_key] = value
+
+    def to_dictionary(self):
+        """
+             returns the dictionary representation of a Square Instance
+        """
+        custom_dict = {'id': 0, 'x': 0, 'size': 0, 'y': 0}
+        for key, value in self.__dict__.items():
+            if key == 'id':
+                custom_dict[key] = value
+            else:
+                custom_key = key[12:]
+                if custom_key == 'width' or custom_key == 'height':
+                    custom_dict['size'] = value
+                else:
+                    custom_dict[custom_key] = value
+        return custom_dict

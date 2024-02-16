@@ -177,4 +177,12 @@ class Rectangle(Base):
         """
             returns the dictionary representation of a Rectangle
         """
-        return self.__dict__
+        custom_dict = {'x': 0, 'y': 0, 'id': 0, 'height': 0, 'width': 0}
+        for key, value in self.__dict__.items():
+            if key == 'id':
+                custom_dict[key] = value
+            else:
+                custom_key = key[12:]
+                custom_dict[custom_key] = value
+
+        return custom_dict
