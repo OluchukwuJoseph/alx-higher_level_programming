@@ -2,7 +2,6 @@
 """This module contains the Base class
    models/base.py
 """
-import os
 
 
 class Base:
@@ -24,3 +23,12 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+        """
+             returns the JSON string representation of list_dictionaries
+        """
+        if list_dictionaries is None:
+            return "[]"
+        else:
+            return str(list_dictionaries)
