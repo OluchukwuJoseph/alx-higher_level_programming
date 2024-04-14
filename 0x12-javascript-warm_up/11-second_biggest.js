@@ -16,7 +16,10 @@ function partition (arr, low, high) {
 }
 
 function quicksort (arr, low, high) {
-  if (low < high || arr.length <= 1) {
+  if (arr.lenght <= 1) {
+    return;
+  }
+  if (low < high) {
     const pivotIndex = partition(arr, low, high);
 
     // Recursively sort elements before and after pivot
@@ -32,7 +35,7 @@ if (sortedArray.length !== 0) {
   if (sortedArray.length === 1) {
     console.log('0');
   } else {
-    let secondBiggestIndex = sortedArray.length - 2;
+    const secondBiggestIndex = sortedArray.length - 2;
     console.log(sortedArray[secondBiggestIndex]);
   }
 } else {
