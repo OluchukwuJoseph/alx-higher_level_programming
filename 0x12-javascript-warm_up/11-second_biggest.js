@@ -27,7 +27,7 @@ function quicksort (arr, low, high) {
 
 const arr = process.argv.slice(2);
 const sortedArray = arr.map(num => parseInt(num));
-if (sortedArray.length != 0) {
+if (sortedArray.length !== 0) {
   quicksort(sortedArray, 0, sortedArray.length - 1);
   if (sortedArray.length === 1) {
     console.log('0');
