@@ -1,7 +1,7 @@
 -- This script uses the hbtn_0d_tvshows database to lists all genres
 -- of the show Dexter.
 
-SELECT name
+/*SELECT name
 FROM tv_genres
 WHERE id IN (
 	SELECT genre_id
@@ -12,4 +12,6 @@ WHERE id IN (
 		WHERE title = 'Dexter'
 		)
 	)
-ORDER BY name;
+ORDER BY name;*/
+
+SELECT 
