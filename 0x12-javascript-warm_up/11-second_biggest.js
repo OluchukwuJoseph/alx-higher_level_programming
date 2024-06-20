@@ -34,7 +34,7 @@ function quicksort (arr, low, high) {
   }
 }
 
-if (args.length === 0) {
+if (args.length === 0 || args.length === 1) {
   console.log('0');
 } else {
   quicksort(args, 0, args.length - 1);
