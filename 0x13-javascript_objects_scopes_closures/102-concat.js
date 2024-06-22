@@ -17,13 +17,12 @@ if (process.argv.length === 5) {
         console.log(err);
         return;
       }
-      data = firstData.toString() + secondData.toString();
+      const data = firstData.toString() + secondData.toString();
       fs.writeFile(thridFile, data, function (err) {
         if (err) {
           console.log(err);
-          return;
         }
-      })
-    })
-  })
+      });
+    });
+  });
 }
