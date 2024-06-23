@@ -16,9 +16,10 @@ try:
     with MySQLdb.connect(host='localhost',
                          user=DB_USER,
                          passwd=DB_PASSWORD,
-                         db=DB, port=3306) as db:
+                         db=DB,
+                         port=3306) as db:
         cursor = db.cursor()
-        sql_query = 'SELECT * FROM states WHERE name LIKE "N%"'
+        sql_query = 'SELECT * FROM states WHERE name LIKE "N%" ORDER BY id'
         cursor.execute(sql_query)
 
         rows = cursor.fetchall()
