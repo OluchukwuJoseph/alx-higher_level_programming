@@ -11,19 +11,21 @@ DB_USER = sys.argv[1]
 DB_PASSWORD = sys.argv[2]
 DB = sys.argv[3]
 
-try:
+if __name__ == '__main__':
     # Connect with Database
-    with MySQLdb.connect(host='localhost',
+    db = MySQLdb.connect(host='localhost',
                          user=DB_USER,
                          passwd=DB_PASSWORD,
                          db=DB,
-                         port=3306) as db:
-        cursor = db.cursor()
-        sql_query = 'SELECT * FROM states ORDER BY id'
-        cursor.execute(sql_query)
+                         port=3306)
+    cursor = db.cursor()
+    sql_query = 'SELECT * FROM states ORDER BY id'
+    cursor.execute(sql_query)
 
-        rows = cursor.fetchall()
-        for row in rows:
-            print(row)
-except Exception as error:
-    print(error)
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
+    # Close connection
+    cursor.close()
+    db.close()
