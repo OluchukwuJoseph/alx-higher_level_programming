@@ -6,18 +6,18 @@ import sys
 import MySQLdb
 
 
-# Get database credentials from Command Line Argruments
-DB_USER = sys.argv[1]
-DB_PASSWORD = sys.argv[2]
-DB = sys.argv[3]
-
 if __name__ == '__main__':
+    # Get database credentials from Command Line Argruments
+    DB_USER = sys.argv[1]
+    DB_PASSWORD = sys.argv[2]
+    DB = sys.argv[3]
+
     # Connect with Database
     db = MySQLdb.connect(host='localhost',
                          user=DB_USER,
                          passwd=DB_PASSWORD,
-                         db=DB,
-                         port=3306)
+                         port=3306,
+                         db=DB)
     cursor = db.cursor()
     sql_query = 'SELECT * FROM states ORDER BY id'
     cursor.execute(sql_query)
