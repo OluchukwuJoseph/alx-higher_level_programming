@@ -35,7 +35,7 @@ if __name__ == "__main__":
         print(rows[0][0], end="")
         rows = rows[1:]
         for row in rows:
-            print(f' ,{row[0]}', end="")
+            print(f', {row[0]}', end="")
         print()
 
     # Close Connection
