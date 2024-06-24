@@ -19,7 +19,11 @@ if __name__ == '__main__':
                          port=3306,
                          db=DB)
     cursor = db.cursor()
-    sql_query = 'SELECT * FROM states ORDER BY id'
+    sql_query = """
+        SELECT *
+        FROM states
+        ORDER BY id
+    """
     cursor.execute(sql_query)
 
     rows = cursor.fetchall()

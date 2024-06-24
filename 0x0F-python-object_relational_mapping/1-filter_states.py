@@ -19,8 +19,13 @@ if __name__ == '__main__':
                          port=3306,
                          db=DB)
     cursor = db.cursor()
-    sql_query = 'SELECT * FROM states WHERE name LIKE "N%" ORDER BY id ASC'
-    cursor.execute(sql_query)
+    query = """
+        SELECT *
+        FROM states
+        WHERE name LIKE BINARY 'N%'
+        ORDER BY id ASC
+    """
+    cursor.execute(query)
 
     rows = cursor.fetchall()
     for row in rows:
