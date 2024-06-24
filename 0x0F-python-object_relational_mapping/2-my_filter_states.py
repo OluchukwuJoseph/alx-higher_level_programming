@@ -23,16 +23,17 @@ if __name__ == '__main__':
     query = """
         SELECT *
         FROM states
-        WHERE name = '{}'
+        WHERE name LIKE BINARY '{}'
         ORDER BY id ASC
-    """.format(argument)
+    """.format('%' + argument + '%')
 
     cursor.execute(query)
 
     # Get and print results
     rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    if (rows):
+        for row in rows:
+            print(row)
 
     # Close Connection
     cursor.close()
