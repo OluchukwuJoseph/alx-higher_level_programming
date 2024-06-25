@@ -19,12 +19,11 @@ if __name__ == "__main__":
     # Get and Execute query
     cursor = db.cursor()
     query = """
-        SELECT name
+        SELECT cities.name
         FROM cities
-        WHERE state_id = (
-            SELECT id
-            FROM states
-            WHERE name = %s)
+        INNER JOIN states
+        ON cities.state_id = states.id
+        WHERE states.name = %s
         ORDER BY cities.id ASC
     """
     cursor.execute(query, (argument,))
