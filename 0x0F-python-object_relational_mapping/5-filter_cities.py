@@ -9,7 +9,7 @@ import sys
 
 if __name__ == "__main__":
     # Retrieve command line argument
-    argument = sys.argv[4].split(';')
+    argument = sys.argv[4]
     # Establish connection with Database
     db = MySQLdb.connect(host='localhost',
                          user=sys.argv[1],
@@ -24,10 +24,10 @@ if __name__ == "__main__":
         WHERE state_id = (
             SELECT id
             FROM states
-            WHERE name = '{}')
+            WHERE name = %s)
         ORDER BY cities.id ASC
-    """.format(argument[0].strip("\'\""))
-    cursor.execute(query)
+    """
+    cursor.execute(query, (argument,))
 
     # Print results
     rows = cursor.fetchall()
