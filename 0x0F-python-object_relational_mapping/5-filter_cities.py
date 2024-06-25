@@ -8,6 +8,8 @@ import sys
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 5:
+        sys.exit(1)
     # Retrieve command line argument
     argument = sys.argv[4]
     # Establish connection with Database
