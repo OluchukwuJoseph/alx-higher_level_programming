@@ -23,7 +23,7 @@ if __name__ == "__main__":
     query = """
         SELECT cities.name
         FROM cities
-        INNER JOIN states
+        JOIN states
         ON cities.state_id = states.id
         WHERE states.name = %s
         ORDER BY cities.id ASC
@@ -32,13 +32,12 @@ if __name__ == "__main__":
 
     # Print results
     rows = cursor.fetchall()
-    if (rows):
-        print(rows[0][0], end="")
-        rows = rows[1:]
-        for row in rows:
-            print(f', {row[0]}', end="")
-        print()
 
+    for i, row in enumerate(rows):
+        print("{}".format(row[0]), end="")
+        if i < len(rows) - 1:
+            print(', ', end="")
+    print('\n', end="")
     # Close Connection
     cursor.close()
     db.close()
