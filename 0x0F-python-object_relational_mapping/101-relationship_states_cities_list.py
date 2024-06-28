@@ -5,7 +5,7 @@ contained in the database hbtn_0e_101_usa
 """
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload
+from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
 
@@ -28,9 +28,9 @@ if __name__ == "__main__":
 
     # List States and Cities
     for state in states:
-        print(f"{state.id}: {state.name}")
+        print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print(f"    {city.id}: {city.name}")
+            print("    {}: {}".format(city.id, city.name))
 
     # Close the session
     session.close()
