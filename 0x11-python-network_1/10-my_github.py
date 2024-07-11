@@ -21,4 +21,4 @@ if __name__ == '__main__':
         user_data = response.json()
         print(user_data['id'])
     else:
-        return None
+        print('None')
