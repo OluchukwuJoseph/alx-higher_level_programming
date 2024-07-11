@@ -8,7 +8,10 @@ import sys
 
 
 if __name__ == '__main__':
-    data = {'q': sys.argv[1]}
+    if sys.argv[1]:
+        data = {'q': sys.argv[1]}
+    else:
+        data = {'q': ''}
     response = requests.post('http://0.0.0.0:5000/search_user', data)
     try:
         response_data = response.json()
