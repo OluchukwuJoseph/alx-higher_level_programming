@@ -17,5 +17,6 @@ if __name__ == '__main__':
 
     response = requests.get(f'https://api.github.com/users/{USER_NAME}',
                             headers=headers)
-    user_data = response.json()
-    print(user_data['id'])
+    if response.status_code == 200:
+        user_data = response.json()
+        print(user_data['id'])
