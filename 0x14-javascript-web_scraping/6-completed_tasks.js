@@ -10,7 +10,10 @@ const taskStat = {};
 let task;
 
 request(url, (error, response, body) => {
-  tasks = JSON.parse(body);
+  if (error) {
+    console.log(`An error occured: ${error}`);
+  }
+  const tasks = JSON.parse(body);
   for (task of tasks) {
     if (!taskStat[task.userId]) {
       taskStat[task.userId] = 0;
