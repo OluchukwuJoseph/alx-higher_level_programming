@@ -9,17 +9,21 @@ const url = process.argv[2];
 const taskStat = {};
 let task;
 
-request(url, { json: true }, (error, response, body) => {
+request.get(url, { json: true }, (error, response, body) => {
   if (error) {
-    console.log(`An error occured: ${error}`);
+    console.log(error);
+    return;
   }
-  for (task of body) {
-    if (!taskStat[task.userId]) {
-      taskStat[task.userId] = 0;
+
+  const taskStat = {};
+  body.forEach((todo) => {
+    if (todo.completed) {
+      if (!taskStat[todo.userId]) {
+        taskStat[todo.userId] = 1;
+      } else {
+        taskStat[todo.userId] += 1;
+      }
     }
-    if (task.completed) {
-      taskStat[task.userId]++;
-    }
-  }
+  });
   console.log(taskStat);
 });
