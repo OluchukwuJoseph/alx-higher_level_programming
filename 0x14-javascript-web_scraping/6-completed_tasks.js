@@ -9,19 +9,17 @@ const url = process.argv[2];
 const taskStat = {};
 let task;
 
-request(url, (error, response, body) => {
+request(url, { json: true }, (error, response, body) => {
   if (error) {
     console.log(`An error occured: ${error}`);
   }
-  const tasks = JSON.parse(body);
-  for (task of tasks) {
+  for (task of body) {
     if (!taskStat[task.userId]) {
       taskStat[task.userId] = 0;
     }
-    if (task.completed === true) {
+    if (task.completed) {
       taskStat[task.userId]++;
     }
   }
-
   console.log(taskStat);
 });
