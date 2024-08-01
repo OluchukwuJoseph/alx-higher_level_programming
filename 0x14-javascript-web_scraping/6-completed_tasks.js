@@ -7,7 +7,6 @@
 const request = require('request');
 const url = process.argv[2];
 const taskStat = {};
-let task;
 
 request.get(url, { json: true }, (error, response, body) => {
   if (error) {
@@ -15,7 +14,6 @@ request.get(url, { json: true }, (error, response, body) => {
     return;
   }
 
-  const taskStat = {};
   body.forEach((todo) => {
     if (todo.completed) {
       if (!taskStat[todo.userId]) {
